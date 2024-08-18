@@ -11,7 +11,7 @@ const Navbar = (props) => {
         <div className="container-fluid">
           <Link
             className="navbar-brand"
-            to="/world"
+            to="/home"
             style={{ fontWeight: "bolder", color: '#111' }}
           >
             NewsHub

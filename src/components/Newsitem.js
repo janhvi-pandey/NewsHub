@@ -7,7 +7,7 @@ const Newsitem = (props) => {
         className={`card my-5 mx-2 ${props.mode === 'dark' ? 'bg-dark text-white border border-light' : 'bg-light text-dark border border-dark'}`} 
         style={{ 
           width: '92.5%', 
-          height: '400px', // Set a fixed height to keep the card size consistent
+          height: '400px',
           color: props.mode === 'dark' ? 'white' : '#191919'
         }}
       >
@@ -17,7 +17,7 @@ const Newsitem = (props) => {
 
           className='card-img-top'
           alt='News'
-          style={{ objectFit: 'cover' }} // Ensures the image fits well within the given space
+          style={{ objectFit: 'cover' }} 
         />
         <div className="card-body" style={{ overflow: 'hidden' }}>
           <span className="position-absolute top-0 start-50 translate-middle badge rounded-pill" style={{background:'linear-gradient(to right, #00c6ff, #0072ff)',color:'#111'}}>

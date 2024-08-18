@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 import LoadingBar from "react-top-loading-bar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
   const [mode, setMode] = useState("light");
@@ -26,24 +26,27 @@ const App = () => {
       <Router>
         <Navbar mode={mode} toggleMode={toggleMode} />
         <Routes>
-        <Route
+          {/* Default Route */}
+          <Route path="/" element={<Navigate to="/home" />} />
+
+          <Route
             exact
-            path="/world"
+            path="/home"
             element={
               <News
                 mode={mode}
                 toggleMode={toggleMode}
                 setProgress={setProgress}
                 apikey={apikey}
-                key="top"
+                key="world"
                 pageSize={8}
-                country="in"
-                category="world"
+                country="in,de,us,ch,sg"
+                category="crime,world,business,sports,lifestyle"
                 language="en"
               />
             }
           />
-        <Route
+          <Route
             exact
             path="/business"
             element={
@@ -54,7 +57,7 @@ const App = () => {
                 apikey={apikey}
                 key="business"
                 pageSize={8}
-                country="in"
+                country="in,ca,us,ch,sg"
                 category="business"
                 language="en"
               />
@@ -71,13 +74,12 @@ const App = () => {
                 apikey={apikey}
                 key="education"
                 pageSize={8}
-                country="in"
+                country="in,ca,us,ch,nl"
                 category="education"
                 language="en"
               />
             }
           />
-          
           <Route
             exact
             path="/entertainment"
@@ -89,13 +91,12 @@ const App = () => {
                 apikey={apikey}
                 key="entertainment"
                 pageSize={8}
-                country="in"
+                country="in,de,us,ch,no"
                 category="entertainment"
                 language="en"
               />
             }
           />
-         
           <Route
             exact
             path="/health"
@@ -107,7 +108,7 @@ const App = () => {
                 apikey={apikey}
                 key="health"
                 pageSize={8}
-                country="in"
+                country="in,fr,us,ch,no"
                 category="health"
                 language="en"
               />
@@ -124,7 +125,7 @@ const App = () => {
                 apikey={apikey}
                 key="science"
                 pageSize={8}
-                country="in"
+                country="in,fr,us,ch,no"
                 category="science"
                 language="en"
               />
@@ -141,7 +142,7 @@ const App = () => {
                 apikey={apikey}
                 key="sports"
                 pageSize={8}
-                country="in"
+                country="in,de,us,tw,no"
                 category="sports"
                 language="en"
               />
@@ -158,13 +159,13 @@ const App = () => {
                 apikey={apikey}
                 key="technology"
                 pageSize={8}
-                country="in"
+                country="de,in,us,kr,cn"
                 category="technology"
                 language="en"
               />
             }
           />
-           <Route
+          <Route
             exact
             path="/tourism"
             element={
@@ -175,7 +176,7 @@ const App = () => {
                 apikey={apikey}
                 key="tourism"
                 pageSize={8}
-                country="in"
+                country="in,us,ch,de,fr"
                 category="tourism"
                 language="en"
               />
@@ -188,4 +189,3 @@ const App = () => {
 };
 
 export default App;
-
